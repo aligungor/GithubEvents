@@ -34,9 +34,13 @@ class EventsViewModel: EventsViewModelProtocol {
             .sink { [weak self] completion in
                 guard case let .failure(error) = completion else { return }
                 self?.eventsRouter.routeToError(with: error.localizedDescription)
-            } receiveValue: { [weak self] events in
-                self?.events = events
-                self?.updateEventCellViewModels()
+            } receiveValue: { [weak self] fetchedEvents in
+                guard let self else { return }
+                let newEvents = fetchedEvents.filter { newEvent in
+                    !self.events.contains(where: { $0.id == newEvent.id })
+                }
+                self.events.insert(contentsOf: newEvents, at: 0)
+                self.updateEventCellViewModels()
             }
             .store(in: &cancellables)
     }

@@ -15,6 +15,9 @@ class EventService: EventServiceProtocol {
         request.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
         request.addValue("2022-11-28", forHTTPHeaderField: "X-GitHub-Api-Version")
         
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { output in
                 guard let httpResponse = output.response as? HTTPURLResponse,
@@ -23,7 +26,7 @@ class EventService: EventServiceProtocol {
                 }
                 return output.data
             }
-            .decode(type: [Event].self, decoder: JSONDecoder())
+            .decode(type: [Event].self, decoder: decoder)
             .eraseToAnyPublisher()
     }
 }

@@ -13,19 +13,19 @@ final class EventsViewModelTests: XCTestCase {
             id: "0",
             type: .forkEvent,
             actor: Actor(id: 0, login: "actor1", url: URL(string: "http://actor1.com")!, avatarUrl: URL(string: "http://actor1.com/avatar.png")!),
-            repo: Repo.init(id: 0, url: URL(string: "http://repo1.com")!, name: "repo1")
+            repo: Repo.init(id: 0, url: URL(string: "http://repo1.com")!, name: "repo1"), createdAt: .now
         ),
         Event(
             id: "1",
             type: .pushEvent,
             actor: Actor(id: 0, login: "actor2", url: URL(string: "http://actor2.com")!, avatarUrl: URL(string: "http://actor2.com/avatar.png")!),
-            repo: Repo.init(id: 0, url: URL(string: "http://repo2.com")!, name: "repo1")
+            repo: Repo.init(id: 0, url: URL(string: "http://repo2.com")!, name: "repo1"), createdAt: .now
         ),
         Event(
             id: "2",
             type: .unknown,
             actor: Actor(id: 0, login: "actor2", url: URL(string: "http://actor2.com")!, avatarUrl: URL(string: "http://actor2.com/avatar.png")!),
-            repo: Repo.init(id: 0, url: URL(string: "http://repo2.com")!, name: "repo1")
+            repo: Repo.init(id: 0, url: URL(string: "http://repo2.com")!, name: "repo1"), createdAt: .now
         )
     ]
     

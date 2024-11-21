@@ -36,6 +36,15 @@ class EventTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let timeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .lightGray
+        label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -50,6 +59,7 @@ class EventTableViewCell: UITableViewCell {
         contentView.addSubview(actorLoginLabel)
         contentView.addSubview(repoLabel)
         contentView.addSubview(eventTypeLabel)
+        contentView.addSubview(timeLabel)
         
         NSLayoutConstraint.activate([
             avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
@@ -68,7 +78,11 @@ class EventTableViewCell: UITableViewCell {
             eventTypeLabel.topAnchor.constraint(equalTo: repoLabel.bottomAnchor, constant: 4),
             eventTypeLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 12),
             eventTypeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            eventTypeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            eventTypeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            
+            timeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            timeLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 80)
         ])
     }
     
@@ -80,5 +94,6 @@ class EventTableViewCell: UITableViewCell {
             from: viewModel.avatarURL,
             placeholder: UIImage(systemName: "person.crop.circle")
         )
+        timeLabel.text = viewModel.relativeTime
     }
 }
