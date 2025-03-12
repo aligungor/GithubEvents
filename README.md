@@ -24,6 +24,7 @@ The app is built with the **MVVM (Model-View-ViewModel)** pattern:
 - **Combine:** For reactive programming.
 - **UIKit:** Used for building responsive, adaptive UI components.
 
-## What's Left to Be Done
-
-- **Unit Testing Coverage:** While some unit tests exist for EventsViewModel, more unit tests could be implemented for Other classes as well. EventsViewModel is used as an example.
+## Support
+<a href="https://www.buymeacoffee.com/aligungor" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 80px; width: 280px;">
+</a>
