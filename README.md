@@ -23,8 +23,3 @@ The app is built with the **MVVM (Model-View-ViewModel)** pattern:
 
 - **Combine:** For reactive programming.
 - **UIKit:** Used for building responsive, adaptive UI components.
-
-## Support
-<a href="https://www.buymeacoffee.com/aligungor" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 80px; width: 280px;">
-</a>
